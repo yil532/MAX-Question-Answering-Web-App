@@ -5,18 +5,13 @@ python:
 services:
   - docker
 before_install:
-  - pushd ..
-  - git clone https://github.com/IBM/MAX-Question-Answering-Web-App.git
-  - cd MAX-Question-Answering-Web-App
   - docker build -t max-question-answering-web-app .
   - docker run -it -d -p 5000:5000 max-question-answering-web-app
-  - popd
   - sleep 30
   - pip install -r requirements.txt
 install:
   - python app.py &
   - sleep 90
-before_script:
   - pip install -r test-requirements.txt
 script:
-  - flake8 -v
+  - flake8 . --max-line-length=127
