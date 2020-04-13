@@ -9,8 +9,8 @@ before_install:
   - sleep 30
   - pip install -r requirements.txt
 install:
-  - python app.py &
   - sleep 90
   - pip install -r test-requirements.txt
 script:
   - flake8 . --max-line-length=127
+  - python app.py &
