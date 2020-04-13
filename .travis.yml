@@ -5,9 +5,6 @@ python:
 services:
   - docker
 before_install:
-  - pushd ..
-  - git clone https://github.com/IBM/MAX-Question-Answering-Web-App.git
-  - cd MAX-Question-Answering-Web-App
   - docker build -t max-question-answering-web-app .
   - docker run -it -d -p 5000:5000 max-question-answering-web-app
   - popd
